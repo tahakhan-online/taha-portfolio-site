@@ -8,6 +8,7 @@ import Projects from '@/components/Projects';
 import Services from '@/components/Services';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import { Toaster } from '@/components/ui/toaster';
 
 const Index = () => {
   return (
@@ -20,6 +21,7 @@ const Index = () => {
       <Services />
       <Contact />
       <Footer />
+      <Toaster />
     </div>
   );
 };

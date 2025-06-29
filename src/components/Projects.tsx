@@ -7,13 +7,13 @@ const Projects = () => {
       title: "Google Form Bot",
       description: "Automated form filler with error handling and 90% accuracy rate",
       tech: ["JavaScript", "Automation", "Error Handling"],
-      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=250&fit=crop"
+      image: "/lovable-uploads/e7601948-e014-4186-90e3-d17a4e86c32c.png"
     },
     {
       title: "Canvas Shooter Game",
       description: "Real-time gameplay with animations, scoring system, and restart logic",
       tech: ["JavaScript", "HTML5 Canvas", "Game Design"],
-      image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=250&fit=crop"
+      image: "/lovable-uploads/47a21c57-44aa-47cb-8f95-ec69da10e2f0.png"
     }
   ];
 
@@ -30,10 +30,12 @@ const Projects = () => {
               key={index}
               className="bg-gray-900 border border-gray-800 rounded-lg overflow-hidden hover:border-cyan-400/50 transition-all duration-300 group"
             >
-              <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                <div className="text-6xl text-gray-600 group-hover:text-cyan-400 transition-colors duration-300">
-                  &lt;/&gt;
-                </div>
+              <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden">
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
               </div>
               
               <div className="p-6">

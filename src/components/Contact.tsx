@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Mail, Phone } from 'lucide-react';
 import emailjs from '@emailjs/browser';
@@ -61,7 +60,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-20 bg-black">
+    <section id="contact" className="py-20 bg-black">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-16">
           Let's <span className="text-cyan-400">Connect</span>

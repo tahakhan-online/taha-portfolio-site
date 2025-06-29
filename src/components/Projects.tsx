@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const Projects = () => {
@@ -18,7 +17,7 @@ const Projects = () => {
   ];
 
   return (
-    <section className="py-20 bg-black">
+    <section id="projects" className="py-20 bg-black">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-16">
           Featured <span className="text-cyan-400">Projects</span>

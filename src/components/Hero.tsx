@@ -3,6 +3,13 @@ import React from 'react';
 import { ArrowDown } from 'lucide-react';
 
 const Hero = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-black via-gray-900 to-black">
       <div className="container mx-auto px-6 text-center">
@@ -27,10 +34,16 @@ const Hero = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="bg-gradient-to-r from-cyan-400 to-blue-500 text-black px-8 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-cyan-400/50 transition-all duration-300">
+          <button 
+            onClick={() => scrollToSection('projects')}
+            className="bg-gradient-to-r from-cyan-400 to-blue-500 text-black px-8 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-cyan-400/50 transition-all duration-300"
+          >
             View My Work
           </button>
-          <button className="border border-gray-600 text-white px-8 py-3 rounded-full font-semibold hover:border-cyan-400 hover:text-cyan-400 transition-all duration-300">
+          <button 
+            onClick={() => scrollToSection('contact')}
+            className="border border-gray-600 text-white px-8 py-3 rounded-full font-semibold hover:border-cyan-400 hover:text-cyan-400 transition-all duration-300"
+          >
             Get In Touch
           </button>
         </div>

@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const About = () => {
@@ -9,7 +8,7 @@ const About = () => {
   ];
 
   return (
-    <section className="py-20 bg-black">
+    <section id="about" className="py-20 bg-black">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-16">
           About <span className="text-cyan-400">Me</span>

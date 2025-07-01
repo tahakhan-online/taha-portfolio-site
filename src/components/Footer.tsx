@@ -12,7 +12,7 @@ const Footer = () => {
           </div>
           
           <p className="text-gray-400 text-center md:text-right">
-            © 2024 Taha Khan. All rights reserved.
+            © 2025 Taha Khan. All rights reserved.
           </p>
         </div>
       </div>

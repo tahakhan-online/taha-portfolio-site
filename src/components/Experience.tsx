@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 const Experience = () => {
@@ -5,7 +6,7 @@ const Experience = () => {
     {
       title: "Subject Matter Expert",
       company: "Startek",
-      period: "Nov 2021 – Present",
+      period: "Nov 2023 – Present",
       achievements: [
         "Led teams and improved CSAT by 25%",
         "Upskilled 50+ staff members",

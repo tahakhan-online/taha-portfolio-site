@@ -1,4 +1,5 @@
 
+
 import React, { useState } from 'react';
 import { Mail, Phone } from 'lucide-react';
 import emailjs from '@emailjs/browser';
@@ -97,7 +98,12 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-white font-medium">Phone</p>
-                  <p className="text-gray-400">+91 63072 48338</p>
+                  <a 
+                    href="tel:+916307248338" 
+                    className="text-gray-400 hover:text-cyan-400 transition-colors duration-300"
+                  >
+                    +91 63072 48338
+                  </a>
                 </div>
               </div>
               
@@ -175,3 +181,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

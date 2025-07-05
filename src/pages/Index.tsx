@@ -9,11 +9,13 @@ import Services from '@/components/Services';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import MouseFollowAnimation from '@/components/MouseFollowAnimation';
+import BackgroundAnimations from '@/components/BackgroundAnimations';
 import { Toaster } from '@/components/ui/toaster';
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-black relative">
+      <BackgroundAnimations />
       <MouseFollowAnimation />
       <div className="relative z-10">
         <Header />

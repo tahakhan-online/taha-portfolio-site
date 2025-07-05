@@ -1,6 +1,8 @@
-import React from 'react';
 
-const Projects = () => {
+import React from 'react';
+import LazyImage from './LazyImage';
+
+const Projects = React.memo(() => {
   const projects = [
     {
       title: "Google Form Bot",
@@ -27,13 +29,13 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div 
               key={index}
-              className="bg-gray-900 border border-gray-800 rounded-lg overflow-hidden hover:border-cyan-400/50 transition-all duration-300 group"
+              className="bg-gray-900 border border-gray-800 rounded-lg overflow-hidden hover:border-cyan-400/50 transition-all duration-300 group will-change-transform"
             >
               <div className="aspect-video bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden">
-                <img 
-                  src={project.image} 
+                <LazyImage
+                  src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
               
@@ -67,6 +69,8 @@ const Projects = () => {
       </div>
     </section>
   );
-};
+});
+
+Projects.displayName = 'Projects';
 
 export default Projects;

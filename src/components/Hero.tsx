@@ -2,7 +2,7 @@
 import React from 'react';
 import { ArrowDown } from 'lucide-react';
 
-const Hero = () => {
+const Hero = React.memo(() => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -36,13 +36,13 @@ const Hero = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center px-4">
           <button 
             onClick={() => scrollToSection('projects')}
-            className="bg-gradient-to-r from-cyan-400 to-blue-500 text-black px-6 sm:px-8 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-cyan-400/50 transition-all duration-300"
+            className="bg-gradient-to-r from-cyan-400 to-blue-500 text-black px-6 sm:px-8 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-cyan-400/50 transition-all duration-300 will-change-transform"
           >
             View My Work
           </button>
           <button 
             onClick={() => scrollToSection('contact')}
-            className="border border-gray-600 text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:border-cyan-400 hover:text-cyan-400 transition-all duration-300"
+            className="border border-gray-600 text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:border-cyan-400 hover:text-cyan-400 transition-all duration-300 will-change-transform"
           >
             Get In Touch
           </button>
@@ -61,6 +61,8 @@ const Hero = () => {
       </div>
     </section>
   );
-};
+});
+
+Hero.displayName = 'Hero';
 
 export default Hero;

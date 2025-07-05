@@ -1,7 +1,8 @@
 
 import React, { useState } from 'react';
+import LazyImage from './LazyImage';
 
-const Services = () => {
+const Services = React.memo(() => {
   const [imageLoaded, setImageLoaded] = useState<{ [key: number]: boolean }>({});
 
   const services = [
@@ -55,20 +56,14 @@ const Services = () => {
           {services.map((service, index) => (
             <div 
               key={index}
-              className="bg-black border border-gray-800 rounded-lg overflow-hidden hover:border-cyan-400/50 transition-all duration-300 group"
+              className="bg-black border border-gray-800 rounded-lg overflow-hidden hover:border-cyan-400/50 transition-all duration-300 group will-change-transform"
             >
               <div className="relative h-48 mb-4 bg-gray-800">
-                {!imageLoaded[index] && (
-                  <div className="absolute inset-0 bg-gray-800 animate-pulse"></div>
-                )}
-                <img 
-                  src={service.image} 
+                <LazyImage
+                  src={service.image}
                   alt={service.title}
-                  loading="lazy"
+                  className="w-full h-full"
                   onLoad={() => handleImageLoad(index)}
-                  className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ${
-                    imageLoaded[index] ? 'opacity-100' : 'opacity-0'
-                  }`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
               </div>
@@ -87,6 +82,8 @@ const Services = () => {
       </div>
     </section>
   );
-};
+});
+
+Services.displayName = 'Services';
 
 export default Services;

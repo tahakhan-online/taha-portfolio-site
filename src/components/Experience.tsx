@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-const Experience = () => {
+const Experience = React.memo(() => {
   const experiences = [
     {
       title: "Subject Matter Expert",
@@ -61,6 +61,8 @@ const Experience = () => {
       </div>
     </section>
   );
-};
+});
+
+Experience.displayName = 'Experience';
 
 export default Experience;

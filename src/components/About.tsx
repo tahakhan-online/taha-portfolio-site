@@ -1,6 +1,7 @@
+
 import React from 'react';
 
-const About = () => {
+const About = React.memo(() => {
   const skills = [
     'Python', 'Java', 'JavaScript', 'HTML', 'CSS', 
     'Responsive Design', 'Cybersecurity', 'Networks', 
@@ -40,7 +41,7 @@ const About = () => {
               {skills.map((skill, index) => (
                 <span 
                   key={index}
-                  className="bg-gray-900 border border-gray-700 text-cyan-400 px-4 py-2 rounded-full text-sm hover:border-cyan-400 transition-colors duration-300"
+                  className="bg-gray-900 border border-gray-700 text-cyan-400 px-4 py-2 rounded-full text-sm hover:border-cyan-400 transition-colors duration-300 will-change-transform"
                 >
                   {skill}
                 </span>
@@ -51,6 +52,8 @@ const About = () => {
       </div>
     </section>
   );
-};
+});
+
+About.displayName = 'About';
 
 export default About;

@@ -1,11 +1,10 @@
 
-
 import React, { useState } from 'react';
 import { Mail, Phone } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { useToast } from '@/hooks/use-toast';
 
-const Contact = () => {
+const Contact = React.memo(() => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -27,15 +26,15 @@ const Contact = () => {
 
     try {
       await emailjs.send(
-        'service_ar8vc9i', // Service ID
-        'template_2sv6kpu', // Template ID
+        'service_ar8vc9i',
+        'template_2sv6kpu',
         {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
           to_name: 'Taha Khan',
         },
-        'vjatjppjrNgp_5ulA' // Public Key
+        'vjatjppjrNgp_5ulA'
       );
 
       toast({
@@ -43,7 +42,6 @@ const Contact = () => {
         description: "Thank you for your message. I'll get back to you soon!",
       });
 
-      // Reset form
       setFormData({
         name: '',
         email: '',
@@ -169,7 +167,7 @@ const Contact = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-gradient-to-r from-cyan-400 to-blue-500 text-black px-8 py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-cyan-400/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-gradient-to-r from-cyan-400 to-blue-500 text-black px-8 py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-cyan-400/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed will-change-transform"
             >
               {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
@@ -178,7 +176,8 @@ const Contact = () => {
       </div>
     </section>
   );
-};
+});
+
+Contact.displayName = 'Contact';
 
 export default Contact;
-

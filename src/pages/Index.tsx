@@ -8,19 +8,23 @@ import Projects from '@/components/Projects';
 import Services from '@/components/Services';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import MouseFollowAnimation from '@/components/MouseFollowAnimation';
 import { Toaster } from '@/components/ui/toaster';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-black">
-      <Header />
-      <Hero />
-      <About />
-      <Experience />
-      <Projects />
-      <Services />
-      <Contact />
-      <Footer />
+    <div className="min-h-screen bg-black relative">
+      <MouseFollowAnimation />
+      <div className="relative z-10">
+        <Header />
+        <Hero />
+        <About />
+        <Experience />
+        <Projects />
+        <Services />
+        <Contact />
+        <Footer />
+      </div>
       <Toaster />
     </div>
   );

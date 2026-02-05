@@ -1,6 +1,12 @@
-
 import React, { useState } from 'react';
 import LazyImage from './LazyImage';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
 
 const Services = React.memo(() => {
   const [imageLoaded, setImageLoaded] = useState<{ [key: number]: boolean }>({});
@@ -52,32 +58,43 @@ const Services = React.memo(() => {
           Comprehensive digital solutions tailored to your needs
         </p>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {services.map((service, index) => (
-            <div 
-              key={index}
-              className="bg-black border border-gray-800 rounded-lg overflow-hidden hover:border-cyan-400/50 transition-all duration-300 group will-change-transform"
-            >
-              <div className="relative h-48 mb-4 bg-gray-800">
-                <LazyImage
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full"
-                  onLoad={() => handleImageLoad(index)}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-              </div>
-              
-              <div className="p-6 pt-0">
-                <div className="w-12 h-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center mb-4 group-hover:shadow-lg group-hover:shadow-cyan-400/50 transition-all duration-300">
-                  <span className="text-black font-bold text-xl">&lt;/&gt;</span>
-                </div>
-                
-                <h3 className="text-xl font-semibold text-white mb-3">{service.title}</h3>
-                <p className="text-gray-300">{service.description}</p>
-              </div>
-            </div>
-          ))}
+        <div className="max-w-6xl mx-auto px-12">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4">
+              {services.map((service, index) => (
+                <CarouselItem key={index} className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
+                  <div className="bg-black border border-gray-800 rounded-lg overflow-hidden hover:border-cyan-400/50 transition-all duration-300 group will-change-transform h-full">
+                    <div className="relative h-48 mb-4 bg-gray-800">
+                      <LazyImage
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full"
+                        onLoad={() => handleImageLoad(index)}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    </div>
+                    
+                    <div className="p-6 pt-0">
+                      <div className="w-12 h-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center mb-4 group-hover:shadow-lg group-hover:shadow-cyan-400/50 transition-all duration-300">
+                        <span className="text-black font-bold text-xl">&lt;/&gt;</span>
+                      </div>
+                      
+                      <h3 className="text-xl font-semibold text-white mb-3">{service.title}</h3>
+                      <p className="text-gray-300">{service.description}</p>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="border-gray-700 bg-gray-900 text-white hover:bg-gray-800 hover:text-cyan-400" />
+            <CarouselNext className="border-gray-700 bg-gray-900 text-white hover:bg-gray-800 hover:text-cyan-400" />
+          </Carousel>
         </div>
       </div>
     </section>

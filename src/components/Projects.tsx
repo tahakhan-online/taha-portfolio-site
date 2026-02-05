@@ -61,7 +61,7 @@ const Projects = React.memo(() => {
           <Carousel
             opts={{
               align: "start",
-              loop: true,
+              loop: false,
             }}
             className="w-full"
           >

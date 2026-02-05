@@ -6,7 +6,7 @@ const Experience = React.memo(() => {
     {
       title: "Subject Matter Expert",
       company: "Startek",
-      period: "Nov 2023 – Present",
+      period: "Nov 2023 – Aug 2025",
       achievements: [
         "Led teams and improved CSAT by 25%",
         "Upskilled 50+ staff members",

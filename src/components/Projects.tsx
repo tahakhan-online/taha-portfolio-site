@@ -78,9 +78,9 @@ const Projects = React.memo(() => {
           >
             <CarouselContent className="-ml-4">
               {projects.map((project, index) => (
-                <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/2">
+                <CarouselItem key={index} className="pl-4 basis-[85%] sm:basis-1/2 lg:basis-1/2">
                   <div className="bg-gray-900 border border-gray-800 rounded-lg overflow-hidden hover:border-cyan-400/50 transition-all duration-300 group will-change-transform flex flex-col h-full">
-                    <div className="relative h-56 overflow-hidden">
+                    <div className="relative h-40 sm:h-56 overflow-hidden">
                       <img 
                         src={project.image} 
                         alt={project.title}

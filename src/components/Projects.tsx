@@ -2,6 +2,7 @@ import React from 'react';
 import travelexPreview from '@/assets/travelex-preview.png';
 import netflixPreview from '@/assets/netflix-preview.png';
 import spotifyPreview from '@/assets/spotify-preview.png';
+import useScrollAnimation from '@/hooks/useScrollAnimation';
 import {
   Carousel,
   CarouselContent,
@@ -11,6 +12,8 @@ import {
 } from '@/components/ui/carousel';
 
 const Projects = React.memo(() => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
+
   const projects = [
     {
       title: "TraveleX – Travel Booking Web UI",
@@ -52,12 +55,20 @@ const Projects = React.memo(() => {
 
   return (
     <section id="projects" className="py-20 bg-black">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-16">
+      <div className="container mx-auto px-6" ref={sectionRef}>
+        <h2 
+          className={`text-4xl md:text-5xl font-bold text-white text-center mb-16 transition-all duration-700 ease-out ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           Featured <span className="text-cyan-400">Projects</span>
         </h2>
         
-        <div className="max-w-6xl mx-auto px-12">
+        <div 
+          className={`max-w-6xl mx-auto px-12 transition-all duration-700 delay-200 ease-out ${
+            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
+          }`}
+        >
           <Carousel
             opts={{
               align: "start",

@@ -1,7 +1,9 @@
-
 import React from 'react';
+import useScrollAnimation from '@/hooks/useScrollAnimation';
 
 const Experience = React.memo(() => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
+
   const experiences = [
     {
       title: "Subject Matter Expert",
@@ -27,18 +29,38 @@ const Experience = React.memo(() => {
 
   return (
     <section id="experience" className="py-20 bg-gray-900">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-16">
+      <div className="container mx-auto px-6" ref={sectionRef}>
+        <h2 
+          className={`text-4xl md:text-5xl font-bold text-white text-center mb-16 transition-all duration-700 ease-out ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           Professional <span className="text-cyan-400">Experience</span>
         </h2>
         
         <div className="max-w-4xl mx-auto">
           <div className="relative">
-            <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400 to-blue-500"></div>
+            <div 
+              className={`absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400 to-blue-500 transition-all duration-1000 ease-out ${
+                isVisible ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
+              }`}
+              style={{ transformOrigin: 'top' }}
+            ></div>
             
             {experiences.map((exp, index) => (
-              <div key={index} className="relative pl-12 pb-12 last:pb-0">
-                <div className="absolute left-2 w-4 h-4 bg-cyan-400 rounded-full -translate-x-1/2"></div>
+              <div 
+                key={index} 
+                className={`relative pl-12 pb-12 last:pb-0 transition-all duration-700 ease-out ${
+                  isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
+                }`}
+                style={{ transitionDelay: `${(index + 1) * 200}ms` }}
+              >
+                <div 
+                  className={`absolute left-2 w-4 h-4 bg-cyan-400 rounded-full -translate-x-1/2 transition-all duration-500 ${
+                    isVisible ? 'scale-100' : 'scale-0'
+                  }`}
+                  style={{ transitionDelay: `${(index + 1) * 300}ms` }}
+                ></div>
                 
                 <div className="bg-black border border-gray-800 rounded-lg p-6 hover:border-cyan-400/50 transition-colors duration-300">
                   <h3 className="text-xl font-semibold text-white mb-2">{exp.title}</h3>

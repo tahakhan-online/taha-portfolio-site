@@ -1,8 +1,8 @@
-
 import React, { useState } from 'react';
 import { Mail, Phone } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { useToast } from '@/hooks/use-toast';
+import useScrollAnimation from '@/hooks/useScrollAnimation';
 
 const Contact = React.memo(() => {
   const [formData, setFormData] = useState({
@@ -12,6 +12,9 @@ const Contact = React.memo(() => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
+  const { ref: leftRef, isVisible: leftVisible } = useScrollAnimation({ threshold: 0.2 });
+  const { ref: rightRef, isVisible: rightVisible } = useScrollAnimation({ threshold: 0.2 });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -62,12 +65,23 @@ const Contact = React.memo(() => {
   return (
     <section id="contact" className="py-20 bg-black">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-16">
-          Let's <span className="text-cyan-400">Connect</span>
-        </h2>
+        <div ref={sectionRef}>
+          <h2 
+            className={`text-4xl md:text-5xl font-bold text-white text-center mb-16 transition-all duration-700 ease-out ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            Let's <span className="text-cyan-400">Connect</span>
+          </h2>
+        </div>
         
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          <div>
+          <div 
+            ref={leftRef}
+            className={`transition-all duration-700 ease-out ${
+              leftVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
+            }`}
+          >
             <h3 className="text-2xl font-semibold text-white mb-6">Get In Touch</h3>
             <p className="text-gray-300 mb-8">
               Ready to bring your ideas to life? Let's discuss how we can work together 
@@ -124,7 +138,16 @@ const Contact = React.memo(() => {
             </div>
           </div>
           
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <div 
+            ref={rightRef}
+            className={`transition-all duration-700 delay-200 ease-out ${
+              rightVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
+            }`}
+          >
+          <form 
+            onSubmit={handleSubmit} 
+            className="space-y-6"
+          >
             <div>
               <input
                 type="text"
@@ -172,6 +195,7 @@ const Contact = React.memo(() => {
               {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
           </form>
+          </div>
         </div>
       </div>
     </section>

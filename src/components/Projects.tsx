@@ -65,7 +65,7 @@ const Projects = React.memo(() => {
         </h2>
         
         <div 
-          className={`max-w-6xl mx-auto px-12 transition-all duration-700 delay-200 ease-out ${
+          className={`max-w-6xl mx-auto transition-all duration-700 delay-200 ease-out ${
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
           }`}
         >
@@ -76,11 +76,11 @@ const Projects = React.memo(() => {
             }}
             className="w-full"
           >
-            <CarouselContent className="-ml-4">
+            <CarouselContent className="-ml-3">
               {projects.map((project, index) => (
-                <CarouselItem key={index} className="pl-4 basis-[85%] sm:basis-1/2 lg:basis-1/2">
+                <CarouselItem key={index} className="pl-3 basis-[85%] sm:basis-1/2 lg:basis-1/2">
                   <div className="bg-gray-900 border border-gray-800 rounded-lg overflow-hidden hover:border-cyan-400/50 transition-all duration-300 group will-change-transform flex flex-col h-full">
-                    <div className="relative h-40 sm:h-56 overflow-hidden">
+                    <div className="relative h-32 sm:h-48 overflow-hidden">
                       <img 
                         src={project.image} 
                         alt={project.title}
@@ -88,24 +88,24 @@ const Projects = React.memo(() => {
                       />
                     </div>
                     
-                    <div className="p-6 flex-1 flex flex-col">
-                      <h3 className="text-xl font-semibold text-white mb-2">{project.title}</h3>
-                      <p className="text-cyan-400 text-sm mb-3">{project.period}</p>
+                    <div className="p-4 flex-1 flex flex-col">
+                      <h3 className="text-lg font-semibold text-white mb-1">{project.title}</h3>
+                      <p className="text-cyan-400 text-xs mb-2">{project.period}</p>
                       
-                      <ul className="text-gray-300 text-sm mb-4 flex-1 space-y-2">
+                      <ul className="text-gray-300 text-xs mb-3 flex-1 space-y-1">
                         {project.highlights.map((highlight, idx) => (
-                          <li key={idx} className="flex items-start gap-2">
-                            <span className="text-cyan-400 mt-1">•</span>
+                          <li key={idx} className="flex items-start gap-1.5">
+                            <span className="text-cyan-400 mt-0.5">•</span>
                             <span>{highlight}</span>
                           </li>
                         ))}
                       </ul>
                       
-                      <div className="flex flex-wrap gap-2 mb-4">
+                      <div className="flex flex-wrap gap-1.5 mb-3">
                         {project.tech.map((tech, idx) => (
                           <span 
                             key={idx}
-                            className="bg-black border border-gray-700 text-cyan-400 px-3 py-1 rounded-full text-xs"
+                            className="bg-black border border-gray-700 text-cyan-400 px-2 py-0.5 rounded-full text-xs"
                           >
                             {tech}
                           </span>
@@ -116,7 +116,7 @@ const Projects = React.memo(() => {
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center bg-cyan-400 text-black font-medium px-4 py-2 rounded-lg hover:bg-cyan-300 transition-colors duration-300"
+                        className="inline-flex items-center justify-center bg-cyan-400 text-black font-medium px-3 py-1.5 rounded-lg hover:bg-cyan-300 transition-colors duration-300 text-sm"
                       >
                         View Project
                       </a>
@@ -125,8 +125,6 @@ const Projects = React.memo(() => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="border-gray-700 bg-gray-900 text-white hover:bg-gray-800 hover:text-cyan-400" />
-            <CarouselNext className="border-gray-700 bg-gray-900 text-white hover:bg-gray-800 hover:text-cyan-400" />
           </Carousel>
         </div>
       </div>

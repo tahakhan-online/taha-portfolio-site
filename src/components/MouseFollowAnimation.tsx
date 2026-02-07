@@ -1,5 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const MouseFollowAnimation = React.memo(() => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -14,21 +15,17 @@ const MouseFollowAnimation = React.memo(() => {
     maxLife: number;
   }>>([]);
   const animationId = useRef<number>();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
+    // Disable canvas animation on mobile for better performance
+    if (isMobile) return;
+
     const canvas = canvasRef.current;
-    if (!canvas) {
-      console.log('Canvas not found');
-      return;
-    }
+    if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
-    if (!ctx) {
-      console.log('Canvas context not found');
-      return;
-    }
-
-    console.log('Mouse animation initialized');
+    if (!ctx) return;
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
@@ -119,7 +116,10 @@ const MouseFollowAnimation = React.memo(() => {
         cancelAnimationFrame(animationId.current);
       }
     };
-  }, []);
+  }, [isMobile]);
+
+  // Don't render canvas on mobile
+  if (isMobile) return null;
 
   return (
     <canvas

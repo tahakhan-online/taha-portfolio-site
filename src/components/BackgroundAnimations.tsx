@@ -1,7 +1,21 @@
 
 import React from 'react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const BackgroundAnimations = React.memo(() => {
+  const isMobile = useIsMobile();
+
+  // Disable heavy animations on mobile for better performance
+  if (isMobile) {
+    return (
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        {/* Minimal static elements for mobile */}
+        <div className="absolute top-1/4 left-1/3 w-16 h-16 bg-gradient-radial from-cyan-400/5 to-transparent rounded-full" />
+        <div className="absolute bottom-1/4 right-1/4 w-12 h-12 bg-gradient-radial from-blue-400/5 to-transparent rounded-full" />
+      </div>
+    );
+  }
+
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
       {/* Floating circles */}

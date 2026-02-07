@@ -3,12 +3,11 @@ import travelexPreview from '@/assets/travelex-preview.png';
 import netflixPreview from '@/assets/netflix-preview.png';
 import spotifyPreview from '@/assets/spotify-preview.png';
 import useScrollAnimation from '@/hooks/useScrollAnimation';
+import LazyImage from './LazyImage';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from '@/components/ui/carousel';
 
 const Projects = React.memo(() => {
@@ -65,7 +64,7 @@ const Projects = React.memo(() => {
         </h2>
         
         <div 
-          className={`max-w-6xl mx-auto transition-all duration-700 delay-200 ease-out ${
+          className={`max-w-6xl mx-auto px-1 sm:px-0 transition-all duration-700 delay-200 ease-out ${
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
           }`}
         >
@@ -76,12 +75,12 @@ const Projects = React.memo(() => {
             }}
             className="w-full"
           >
-            <CarouselContent className="-ml-3">
+            <CarouselContent className="-ml-2 sm:-ml-3">
               {projects.map((project, index) => (
-                <CarouselItem key={index} className="pl-3 basis-[85%] sm:basis-1/2 lg:basis-1/2">
+                <CarouselItem key={index} className="pl-2 sm:pl-3 basis-[80%] sm:basis-1/2 lg:basis-1/3">
                   <div className="bg-gray-900 border border-gray-800 rounded-lg overflow-hidden hover:border-cyan-400/50 transition-all duration-300 group will-change-transform flex flex-col h-full">
-                    <div className="relative h-32 sm:h-48 overflow-hidden">
-                      <img 
+                    <div className="relative h-28 sm:h-44 lg:h-52 overflow-hidden">
+                      <LazyImage
                         src={project.image} 
                         alt={project.title}
                         className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"

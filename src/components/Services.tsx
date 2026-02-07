@@ -80,11 +80,11 @@ const Services = React.memo(() => {
             }}
             className="w-full"
           >
-            <CarouselContent className="-ml-4">
+            <CarouselContent className="-ml-3 sm:-ml-4">
               {services.map((service, index) => (
-              <CarouselItem key={index} className="pl-4 basis-[85%] sm:basis-1/2 lg:basis-1/3">
+              <CarouselItem key={index} className="pl-3 sm:pl-4 basis-[85%] sm:basis-1/2 lg:basis-1/3">
                   <div className="bg-black border border-gray-800 rounded-lg overflow-hidden hover:border-cyan-400/50 transition-all duration-300 group will-change-transform h-full">
-                    <div className="relative h-36 sm:h-48 mb-4 bg-gray-800">
+                    <div className="relative h-28 sm:h-48 mb-2 sm:mb-4 bg-gray-800">
                       <LazyImage
                         src={service.image}
                         alt={service.title}
@@ -94,20 +94,20 @@ const Services = React.memo(() => {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                     </div>
                     
-                    <div className="p-6 pt-0">
-                      <div className="w-12 h-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center mb-4 group-hover:shadow-lg group-hover:shadow-cyan-400/50 transition-all duration-300">
-                        <span className="text-black font-bold text-xl">&lt;/&gt;</span>
+                    <div className="p-3 sm:p-6 pt-0">
+                      <div className="w-9 h-9 sm:w-12 sm:h-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center mb-2 sm:mb-4 group-hover:shadow-lg group-hover:shadow-cyan-400/50 transition-all duration-300">
+                        <span className="text-black font-bold text-base sm:text-xl">&lt;/&gt;</span>
                       </div>
                       
-                      <h3 className="text-xl font-semibold text-white mb-3">{service.title}</h3>
-                      <p className="text-gray-300">{service.description}</p>
+                      <h3 className="text-base sm:text-xl font-semibold text-white mb-1 sm:mb-3">{service.title}</h3>
+                      <p className="text-gray-300 text-sm sm:text-base">{service.description}</p>
                     </div>
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="border-gray-700 bg-gray-900 text-white hover:bg-gray-800 hover:text-cyan-400" />
-            <CarouselNext className="border-gray-700 bg-gray-900 text-white hover:bg-gray-800 hover:text-cyan-400" />
+            <CarouselPrevious className="hidden sm:flex border-gray-700 bg-gray-900 text-white hover:bg-gray-800 hover:text-cyan-400" />
+            <CarouselNext className="hidden sm:flex border-gray-700 bg-gray-900 text-white hover:bg-gray-800 hover:text-cyan-400" />
           </Carousel>
         </div>
       </div>

@@ -84,7 +84,7 @@ const Services = React.memo(() => {
               {services.map((service, index) => (
               <CarouselItem key={index} className="pl-2 sm:pl-3 basis-[80%] sm:basis-1/2 lg:basis-1/3">
                   <div className="bg-black border border-gray-800 rounded-lg overflow-hidden hover:border-cyan-400/50 transition-all duration-300 group will-change-transform h-full">
-                    <div className="relative h-28 sm:h-48 mb-2 sm:mb-4 bg-gray-800">
+                    <div className="relative h-36 sm:h-56 mb-2 sm:mb-4 bg-gray-800">
                       <LazyImage
                         src={service.image}
                         alt={service.title}

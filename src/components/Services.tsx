@@ -69,7 +69,7 @@ const Services = React.memo(() => {
         </p>
         
         <div 
-          className={`max-w-6xl mx-auto px-12 transition-all duration-700 delay-200 ease-out ${
+          className={`max-w-6xl mx-auto px-1 sm:px-0 transition-all duration-700 delay-200 ease-out ${
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
           }`}
         >
@@ -80,9 +80,9 @@ const Services = React.memo(() => {
             }}
             className="w-full"
           >
-            <CarouselContent className="-ml-3 sm:-ml-4">
+            <CarouselContent className="-ml-2 sm:-ml-3">
               {services.map((service, index) => (
-              <CarouselItem key={index} className="pl-3 sm:pl-4 basis-[85%] sm:basis-1/2 lg:basis-1/3">
+              <CarouselItem key={index} className="pl-2 sm:pl-3 basis-[80%] sm:basis-1/2 lg:basis-1/3">
                   <div className="bg-black border border-gray-800 rounded-lg overflow-hidden hover:border-cyan-400/50 transition-all duration-300 group will-change-transform h-full">
                     <div className="relative h-28 sm:h-48 mb-2 sm:mb-4 bg-gray-800">
                       <LazyImage

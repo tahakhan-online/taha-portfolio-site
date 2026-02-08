@@ -14,7 +14,7 @@ import { Toaster } from '@/components/ui/toaster';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-black relative">
+    <div className="min-h-screen bg-black relative overflow-x-hidden">
       <BackgroundAnimations />
       <MouseFollowAnimation />
       <div className="relative z-10">

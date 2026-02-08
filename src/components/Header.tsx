@@ -39,7 +39,7 @@ const Header = () => {
 
           <button 
             onClick={handleDownloadResume}
-            className="bg-gradient-to-r from-cyan-400 to-blue-500 text-black px-6 py-2 rounded-full font-semibold hover:shadow-lg hover:shadow-cyan-400/50 transition-all duration-300"
+            className="bg-gradient-to-r from-cyan-400 to-blue-500 text-black px-4 py-1.5 text-sm sm:px-6 sm:py-2 sm:text-base rounded-full font-semibold hover:shadow-lg hover:shadow-cyan-400/50 transition-all duration-300"
           >
             Download Resume
           </button>

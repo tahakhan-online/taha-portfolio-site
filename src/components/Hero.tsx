@@ -18,7 +18,7 @@ const Hero = React.memo(() => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-black via-gray-900 to-black">
+    <section className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden">
       <div className="container mx-auto px-6 text-center">
         <div 
           className={`mb-8 transition-all duration-700 ease-out ${
@@ -84,9 +84,9 @@ const Hero = React.memo(() => {
         <ArrowDown className="text-cyan-400 w-6 h-6 animate-bounce" />
       </div>
       
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-1 h-1 bg-blue-400 rounded-full animate-pulse delay-1000"></div>
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-20 left-4 sm:left-10 w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+        <div className="absolute top-40 right-4 sm:right-20 w-1 h-1 bg-blue-400 rounded-full animate-pulse delay-1000"></div>
         <div className="absolute bottom-32 left-1/4 w-1.5 h-1.5 bg-cyan-300 rounded-full animate-pulse delay-500"></div>
         <div className="absolute bottom-20 right-1/3 w-1 h-1 bg-blue-300 rounded-full animate-pulse delay-700"></div>
       </div>
